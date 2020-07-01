@@ -1,0 +1,53 @@
+[33mcommit 9cda7d55cd60ec95ec937580661663c93b33271e[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m)[m
+Author: Paulo Lana <pjlana@gmail.com>
+Date:   Tue Jun 30 17:35:15 2020 -0300
+
+    Estado e Cidade
+
+[33mcommit 1e34feb87665965ab8645651a7cd01298832b0f9[m
+Author: Paulo Lana <pjlana@gmail.com>
+Date:   Tue Jun 30 17:10:54 2020 -0300
+
+    Ajustes no endpoint /categorias/{id}
+
+[33mcommit 02c94b7563a5d29f22991fd16e7cf1e6e0cb152d[m
+Author: Paulo Lana <pjlana@gmail.com>
+Date:   Tue Jun 30 16:15:31 2020 -0300
+
+    Produto e associação muitos para muitos
+
+[33mcommit 1d0fa928cb2d9f77380d5ab108417a8db1d0a5a4[m
+Author: Paulo Lana <pjlana@gmail.com>
+Date:   Tue Jun 30 15:44:27 2020 -0300
+
+    Criando operação de instanciação
+
+[33mcommit ee3ff5119065383a02ac0d222eef2dac070a5e21[m
+Author: Paulo Lana <pjlana@gmail.com>
+Date:   Tue Jun 30 15:25:57 2020 -0300
+
+    Criando repository e service para Categoria
+
+[33mcommit abdfca70e6739ec3f0c7c1502ac2bc4297345123[m
+Author: Paulo Lana <pjlana@gmail.com>
+Date:   Tue Jun 30 14:47:19 2020 -0300
+
+    Banco de dados H2 e a criação automática da base de dados
+
+[33mcommit 674d25e515d43b0d16b7d356f81936ca2dd4163d[m
+Author: Paulo Lana <pjlana@gmail.com>
+Date:   Tue Jun 30 14:17:02 2020 -0300
+
+    Testando a primeira classe de domínio
+
+[33mcommit e2352a43677f9aaf54747527c262c54ac1c75a9b[m
+Author: Paulo Lana <pjlana@gmail.com>
+Date:   Tue Jun 30 13:58:56 2020 -0300
+
+    REST testado
+
+[33mcommit c9ef00c20b27afef0ec0ca29b7882bfbaf8a363a[m
+Author: Paulo Lana <pjlana@gmail.com>
+Date:   Tue Jun 30 13:42:46 2020 -0300
+
+    Projeto criado
