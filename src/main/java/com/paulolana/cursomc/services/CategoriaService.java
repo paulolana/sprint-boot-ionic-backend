@@ -1,5 +1,6 @@
 package com.paulolana.cursomc.services;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,6 +35,10 @@ public class CategoriaService {
 	public void delete(Integer id) {
 		find(id);
 		repo.deleteById(id);
+	}
+	
+	public List<Categoria> findAll(){
+		return repo.findAll();
 	}
 
 }
