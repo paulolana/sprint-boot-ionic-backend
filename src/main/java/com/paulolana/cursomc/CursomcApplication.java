@@ -78,7 +78,7 @@ public class CursomcApplication implements CommandLineRunner {
 		Estado est1 = new Estado(null, "Minas Gerais");
 		Estado est2 = new Estado(null, "São Paulo");
 		
-		Cidade c1 = new Cidade(null, "Uberlância", est1);
+		Cidade c1 = new Cidade(null, "Uberlândia", est1);
 		Cidade c2 = new Cidade(null, "São Paulo", est2);
 		Cidade c3 = new Cidade(null, "Campinas", est2);
 		
