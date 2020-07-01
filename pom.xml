@@ -10,9 +10,9 @@
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.paulolana</groupId>
-	<artifactId>cursomc</artifactId>
+	<artifactId>SprintBootIonicBackend</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>cursomc</name>
+	<name>SprintBootIonicBackend</name>
 	<description>Demo project for Spring Boot</description>
 
 	<properties>
