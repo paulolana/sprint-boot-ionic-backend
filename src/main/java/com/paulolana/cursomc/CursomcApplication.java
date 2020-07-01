@@ -14,6 +14,7 @@ import com.paulolana.cursomc.domain.Cidade;
 import com.paulolana.cursomc.domain.Cliente;
 import com.paulolana.cursomc.domain.Endereco;
 import com.paulolana.cursomc.domain.Estado;
+import com.paulolana.cursomc.domain.ItemPedido;
 import com.paulolana.cursomc.domain.Pagamento;
 import com.paulolana.cursomc.domain.PagamentoComBoleto;
 import com.paulolana.cursomc.domain.PagamentoComCartao;
@@ -26,6 +27,7 @@ import com.paulolana.cursomc.repositories.CidadeRepository;
 import com.paulolana.cursomc.repositories.ClienteRepository;
 import com.paulolana.cursomc.repositories.EnderecoRepository;
 import com.paulolana.cursomc.repositories.EstadoRepository;
+import com.paulolana.cursomc.repositories.ItemPedidoRepository;
 import com.paulolana.cursomc.repositories.PagamentoRepository;
 import com.paulolana.cursomc.repositories.PedidoRepository;
 import com.paulolana.cursomc.repositories.ProdutoRepository;
@@ -49,6 +51,8 @@ public class CursomcApplication implements CommandLineRunner {
 	private PedidoRepository pedidoRepository;
 	@Autowired
 	private PagamentoRepository pagamentoRepository;
+	@Autowired
+	private ItemPedidoRepository itemPedidoRepository;
 
 	public static void main(String[] args) {
 		SpringApplication.run(CursomcApplication.class, args);
@@ -113,6 +117,18 @@ public class CursomcApplication implements CommandLineRunner {
 		List<Pedido> pedidos = Arrays.asList(ped1, ped2);
 		List<Pagamento> pagamentos = Arrays.asList(pagto1, pagto2);
 		
+		ItemPedido ip1 = new ItemPedido(ped1, p1, 0.00, 1, 2000.00);
+		ItemPedido ip2 = new ItemPedido(ped1, p3, 0.00, 2, 80.00);
+		ItemPedido ip3 = new ItemPedido(ped2, p2, 100.00, 1, 800.00);
+		
+		ped1.getItens().addAll(Arrays.asList(ip1, ip2));
+		ped2.getItens().addAll(Arrays.asList(ip3));
+		
+		p1.getItens().addAll(Arrays.asList(ip1));
+		p2.getItens().addAll(Arrays.asList(ip3));
+		p3.getItens().add(ip2);
+		
+		List<ItemPedido> itensPedido = Arrays.asList(ip1, ip2, ip3);
 		
 		categoriaRepository.saveAll(categorias);
 		produtoRepository.saveAll(produtos);
@@ -122,6 +138,7 @@ public class CursomcApplication implements CommandLineRunner {
 		enderecoRepository.saveAll(enderecos);
 		pedidoRepository.saveAll(pedidos);
 		pagamentoRepository.saveAll(pagamentos);
+		itemPedidoRepository.saveAll(itensPedido);
 		
 		
 	}
