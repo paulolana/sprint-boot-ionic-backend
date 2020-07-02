@@ -84,7 +84,9 @@ public class ClienteService {
 	
 	public Cliente fromDto(ClienteNewDTO objDto) {
 		Cliente cliente = new Cliente(null, objDto.getNome(), objDto.getEmail(), objDto.getCpfOuCnpj(), TipoCliente.toEnum(objDto.getTipo()));
-		Cidade cidade = cidRepo.findById(objDto.getCidadeId()).orElseGet(null);
+		Cidade cidade = cidRepo.findById(objDto.getCidadeId()).orElseThrow(
+				() -> new ObjectNotFoundException("Cidade não localizado. ID = " + objDto.getCidadeId())
+			);
 		Endereco endereco = new Endereco(null, objDto.getLogradouro(), objDto.getNumero(), objDto.getComplemento(), objDto.getBairro(), objDto.getCep(), cliente, cidade);
 		cliente.getEnderecos().add(endereco);
 		cliente.getTelefones().add((objDto.getTelefone1()));
