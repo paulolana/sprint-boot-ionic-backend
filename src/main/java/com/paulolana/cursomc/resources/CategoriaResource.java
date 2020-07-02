@@ -48,7 +48,7 @@ public class CategoriaResource {
 	@RequestMapping(value = "/{id}", method = RequestMethod.PUT)
 	public ResponseEntity<Void> update(@PathVariable Integer id, @Valid @RequestBody CategoriaDTO objDto) {
 		Categoria obj = service.fromDto(objDto);
-		
+
 		obj.setId(id);
 		obj = service.update(obj);
 		return ResponseEntity.noContent().build();
@@ -56,34 +56,30 @@ public class CategoriaResource {
 
 	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
 	public ResponseEntity<Void> delete(@PathVariable Integer id) {
-		try {
-			service.delete(id);
-			return ResponseEntity.noContent().build();
-		} catch (DataIntegrityViolationException e) {
-			throw new DataIntegrityException("Não é possível excluir uma categoria que possui produtos");
-		}
+		service.delete(id);
+		return ResponseEntity.noContent().build();
+
 	}
-	
+
 	@RequestMapping(method = RequestMethod.GET)
-	public ResponseEntity<List<CategoriaDTO>> findAll(){
+	public ResponseEntity<List<CategoriaDTO>> findAll() {
 		List<Categoria> categorias = service.findAll();
-		List<CategoriaDTO> categoriasDTO = categorias.stream().map(obj -> new CategoriaDTO(obj)).collect(Collectors.toList());
-				
+		List<CategoriaDTO> categoriasDTO = categorias.stream().map(obj -> new CategoriaDTO(obj))
+				.collect(Collectors.toList());
+
 		return ResponseEntity.ok(categoriasDTO);
 	}
-	
+
 	@RequestMapping(value = "/page", method = RequestMethod.GET)
-	public ResponseEntity<Page<CategoriaDTO>> findPage(
-			@RequestParam(value="page", defaultValue="0")Integer page, 
-			@RequestParam(value="lines", defaultValue="24")Integer linesPerPage,
-			@RequestParam(value="orderBy", defaultValue="nome")String orderBy, 
-			@RequestParam(value="direction", defaultValue="ASC")String direction){
-		
+	public ResponseEntity<Page<CategoriaDTO>> findPage(@RequestParam(value = "page", defaultValue = "0") Integer page,
+			@RequestParam(value = "lines", defaultValue = "24") Integer linesPerPage,
+			@RequestParam(value = "orderBy", defaultValue = "nome") String orderBy,
+			@RequestParam(value = "direction", defaultValue = "ASC") String direction) {
+
 		Page<Categoria> categorias = service.findPage(page, linesPerPage, orderBy, direction);
 		Page<CategoriaDTO> categoriasDTO = categorias.map(obj -> new CategoriaDTO(obj));
-				
+
 		return ResponseEntity.ok(categoriasDTO);
 	}
-	
 
 }
