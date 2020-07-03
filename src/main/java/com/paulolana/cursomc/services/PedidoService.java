@@ -34,7 +34,7 @@ public class PedidoService {
 	ClienteService clienteService;
 	
 	/*
-	 * na classe TestConfig está definido qual classe será instanciada para a interface EmailService
+	 * na classe TestConfig ou DevConfig está definido qual classe será instanciada para a interface EmailService
 	 */
 	@Autowired
 	EmailService emailService;
