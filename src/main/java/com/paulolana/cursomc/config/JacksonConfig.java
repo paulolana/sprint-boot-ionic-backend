@@ -13,7 +13,7 @@ public class JacksonConfig {
 // https://stackoverflow.com/questions/41452598/overcome-can-not-construct-instance-ofinterfaceclass-without-hinting-the-pare
 	
 /*
- * Classe padrão para configura JsonTypeInfo do jackson.
+ * Classe padrão para configurar JsonTypeInfo do jackson.
  * Se for utilizar em outras classes deve-se apenas incluí-las em objectMapper.registerSubtypes(...
  * 
  */
