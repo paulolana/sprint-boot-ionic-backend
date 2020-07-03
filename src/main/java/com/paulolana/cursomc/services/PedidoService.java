@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
+import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.paulolana.cursomc.domain.ItemPedido;
 import com.paulolana.cursomc.domain.PagamentoComBoleto;
 import com.paulolana.cursomc.domain.Pedido;
@@ -44,6 +46,9 @@ public class PedidoService {
 		obj.getPagamento().setEstado(EstadoPagamento.PENDENTE);
 		obj.getPagamento().setPedido(obj);
 		
+		/*
+		 * A instância do tipo de pagamento é feita automaticamente através das anotações @JsonTypeInfo e @JsonTypeName nas classes de pagamento
+		 */
 		if (obj.getPagamento() instanceof PagamentoComBoleto) {
 			PagamentoComBoleto pagto = (PagamentoComBoleto)obj.getPagamento();
 			boletoService.preencherPagamentoComBoleto(pagto, obj.getInstante());

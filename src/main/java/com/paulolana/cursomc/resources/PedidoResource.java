@@ -33,8 +33,11 @@ public class PedidoResource {
 	
 	@RequestMapping(method = RequestMethod.POST)
 	public ResponseEntity<Void> insert(@Valid @RequestBody Pedido obj) {
+		// Salva o pedido
 		obj = service.insert(obj);
+		// Monta a Uri de retorno
 		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(obj.getId()).toUri();
+		// Retorna a URI
 		return ResponseEntity.created(uri).build();
 	}
 }
