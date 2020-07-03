@@ -67,10 +67,10 @@ public class ClienteResource {
 	
 	@RequestMapping(method = RequestMethod.GET)
 	public ResponseEntity<List<ClienteDTO>> findAll(){
-		List<Cliente> categorias = service.findAll();
-		List<ClienteDTO> categoriasDTO = categorias.stream().map(obj -> new ClienteDTO(obj)).collect(Collectors.toList());
+		List<Cliente> clientes = service.findAll();
+		List<ClienteDTO> clientesDTO = clientes.stream().map(obj -> new ClienteDTO(obj)).collect(Collectors.toList());
 				
-		return ResponseEntity.ok(categoriasDTO);
+		return ResponseEntity.ok(clientesDTO);
 	}
 	
 	@RequestMapping(value = "/page", method = RequestMethod.GET)

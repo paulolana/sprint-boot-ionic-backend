@@ -11,6 +11,8 @@ import com.paulolana.cursomc.domain.Cliente;
 public interface ClienteRepository extends JpaRepository<Cliente, Integer>{
 	
 	//findBy<nome do campo> faz com que o Spring gere uma consulta pelo campo automaticamente
+	//Documentação: https://docs.spring.io/spring-data/jpa/docs/current/reference/html/#repositories.query-methods
+	
 	@Transactional(readOnly=true) 
 	Cliente findByEmail(String email);
 
