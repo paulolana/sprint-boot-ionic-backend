@@ -33,6 +33,12 @@ public class PedidoService {
 	@Autowired
 	ClienteService clienteService;
 	
+	/*
+	 * na classe TestConfig está definido qual classe será instanciada para a interface EmailService
+	 */
+	@Autowired
+	EmailService emailService;
+	
 	public Pedido find(Integer id) {
 		Optional<Pedido> obj = repo.findById(id);
 		
@@ -70,7 +76,7 @@ public class PedidoService {
 		}
 		itemPedidoRepository.saveAll(obj.getItens());
 		
-		System.out.println(obj);
+		emailService.sendOrderConfirmationEmail(obj);
 		
 		return obj;
 		
