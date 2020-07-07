@@ -1,9 +1,7 @@
 package com.paulolana.cursomc.services;
 
-import java.io.Serializable;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -110,10 +108,10 @@ public class DBService {
 		est1.getCidades().addAll(Arrays.asList(c1));
 		est2.getCidades().addAll(Arrays.asList(c2, c3));
 
-		Cliente cli1 = new Cliente(null, "Maria Silva", "maria@gmail.com", "36378912377", TipoCliente.PESSOAFISICA, pe.encode("123456"));
+		Cliente cli1 = new Cliente(null, "Maria Silva", "maria@gmail.com", "36378912377", TipoCliente.PESSOAFISICA, pe.encode("123"));
 		cli1.getTelefones().addAll(Arrays.asList("27363323", "93838393"));
 
-		Cliente cli2 = new Cliente(null, "Ana Costa", "ana@gmail.com", "31628382740", TipoCliente.PESSOAFISICA, pe.encode("123456"));
+		Cliente cli2 = new Cliente(null, "Ana Costa", "ana@gmail.com", "31628382740", TipoCliente.PESSOAFISICA, pe.encode("456"));
 		cli1.getTelefones().addAll(Arrays.asList("2145656", "312313"));
 		cli2.addPerfil(Perfil.ADMIN);
 
