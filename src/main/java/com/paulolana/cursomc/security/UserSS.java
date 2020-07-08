@@ -7,7 +7,6 @@ import java.util.stream.Collectors;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.jackson2.SimpleGrantedAuthorityMixin;
 
 import com.paulolana.cursomc.domain.enums.Perfil;
 
@@ -32,6 +31,10 @@ public class UserSS implements UserDetails{
 	
 	public Integer getId() {
 		return id;
+	}
+	
+	public boolean hasRole(Perfil perfil) {
+		return getAuthorities().contains(new SimpleGrantedAuthority(perfil.getDescricao()));
 	}
 
 	@Override
